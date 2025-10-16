@@ -10,16 +10,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     
-    <!-- Chosen Palette: Calm Synthesis (BG: #F8F7F2, Text: #3D405B, Primary: #81B29A, Accent: #E07A5F, Muted: #F2CC8F) -->
-    <!-- Application Structure Plan: The SPA is designed as a single-page thematic deep-dive. It starts with a broad, central definition of a "Synthesizer" to establish a baseline understanding. Below this, an interactive navigation hub with five clickable domain cards (Skool, Research, etc.) allows users to non-linearly explore specific contexts. Clicking a card dynamically updates a dedicated content area, showing the role, process, and output of a synthesizer in that domain. This structure was chosen to facilitate comparison and reinforce the core concept through varied examples, which is more intuitive for learning than a rigid, linear format. The user flow is designed for discovery: Define -> Explore Contexts -> Visualize Skills -> Understand the Process. -->
-    <!-- Visualization & Content Choices: 
-        1. Report Info: Core definition of a "Synthesizer". -> Goal: Inform. -> Viz/Presentation: Prominent headline and introductory paragraph. -> Interaction: None. -> Justification: Establishes a clear foundation before exploration. -> Library/Method: HTML/Tailwind.
-        2. Report Info: Role of a Synthesizer in 5 specific domains. -> Goal: Organize & Compare. -> Viz/Presentation: Interactive cards/tabs linked to a dynamic content display area. -> Interaction: On-click update of text content. -> Justification: Allows users to self-direct their learning and easily compare roles without scrolling through a long page, preventing information overload. -> Library/Method: Vanilla JS DOM manipulation.
-        3. Report Info: Key attributes and skills of a Synthesizer. -> Goal: Compare & Analyze. -> Viz/Presentation: Dynamic radar chart. -> Interaction: Chart data updates when a user selects a domain, showing the unique skill profile for that context. -> Justification: Provides a quick, powerful visual comparison of the nuanced skill requirements across different fields. -> Library/Method: Chart.js.
-        4. Report Info: The abstract process of synthesis. -> Goal: Explain a process. -> Viz/Presentation: A simple three-stage visual flow diagram. -> Interaction: Subtle hover animations. -> Justification: A visual metaphor simplifies a complex abstract concept (Input -> Synthesis -> Output). -> Library/Method: HTML/Tailwind.
-    -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
-
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -50,10 +40,10 @@
             <section id="interactive-hub" class="mb-12">
                 <h2 class="text-2xl font-bold text-center mb-2">Explore the Role of a Synthesizer</h2>
                 <p class="text-center text-[#3D405B]/80 mb-8">Select a domain to understand its specific application and required skills.</p>
-                <div id="tabs-container" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
-                    <button data-domain="skool" class="nav-tab p-4 bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md hover:border-[#81B29A] focus:outline-none focus:ring-2 focus:ring-[#81B29A]/50">
-                        <span class="text-4xl">🎓</span>
-                        <span class="block mt-2 font-semibold">Skool Platform</span>
+                <div id="tabs-container" class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4">
+                    <button data-domain="product" class="nav-tab p-4 bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md hover:border-[#81B29A] focus:outline-none focus:ring-2 focus:ring-[#81B29A]/50">
+                        <span class="text-4xl">🧑‍💻</span>
+                        <span class="block mt-2 font-semibold">Product Mngmt</span>
                     </button>
                     <button data-domain="research" class="nav-tab p-4 bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md hover:border-[#81B29A] focus:outline-none focus:ring-2 focus:ring-[#81B29A]/50">
                         <span class="text-4xl">🔬</span>
@@ -66,10 +56,6 @@
                     <button data-domain="meta" class="nav-tab p-4 bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md hover:border-[#81B29A] focus:outline-none focus:ring-2 focus:ring-[#81B29A]/50">
                         <span class="text-4xl">🧩</span>
                         <span class="block mt-2 font-semibold">Meta-Analysis</span>
-                    </button>
-                    <button data-domain="nlp" class="nav-tab p-4 bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md hover:border-[#81B29A] focus:outline-none focus:ring-2 focus:ring-[#81B29A]/50">
-                        <span class="text-4xl">🤖</span>
-                        <span class="block mt-2 font-semibold">NLP</span>
                     </button>
                 </div>
             </section>
@@ -120,12 +106,12 @@
 
     <script>
         const contentData = {
-            skool: {
-                title: "Synthesizer on the Skool Platform",
-                description: "On a community platform like Skool, the Synthesizer acts as a 'sense-maker' and value creator. They transform the chaotic flow of discussions, resources, and questions into structured, high-value assets for the entire community.",
-                activities: "Monitoring discussions, curating top posts, identifying common questions, packaging insights into courses or guides, and summarizing key takeaways from events or masterminds.",
-                output: "A clear learning path, a well-organized resource library, weekly summary newsletters, or a 'best-of' content hub that accelerates learning for all members.",
-                skills: { analytical: 7, communication: 9, curation: 10, strategic: 6, technical: 4, creative: 8 }
+            product: {
+                title: "Synthesizer in Product Management",
+                description: "In product management, the Synthesizer connects user feedback, market data, and technical constraints to define the 'why' and 'what' of a product. They create a coherent vision from conflicting inputs.",
+                activities: "Analyzing user interviews, tracking usage metrics, conducting competitor analysis, prioritizing features, and translating business goals into a clear product roadmap for the engineering team.",
+                output: "A prioritized feature backlog, a clear product requirements document (PRD), a strategic roadmap, or a data-backed business case for a new product initiative.",
+                skills: { analytical: 9, communication: 9, curation: 7, strategic: 10, technical: 6, creative: 7 }
             },
             research: {
                 title: "Synthesizer in Research",
@@ -147,13 +133,6 @@
                 activities: "Defining strict inclusion/exclusion criteria for studies, extracting quantitative data, assessing study quality and bias, and applying statistical models to aggregate the results.",
                 output: "A quantitative summary of evidence on a specific topic (e.g., 'Does X drug work?'), providing a much stronger conclusion than any single study could offer.",
                 skills: { analytical: 10, communication: 7, curation: 8, strategic: 6, technical: 9, creative: 4 }
-            },
-            nlp: {
-                title: "Synthesizer as an NLP Model",
-                description: "In Natural Language Processing, synthesis is an automated task performed by algorithms. These models are trained to read and understand vast amounts of text to produce condensed, structured knowledge.",
-                activities: "Processing text corpora, performing tasks like summarization (extractive or abstractive), topic modeling (identifying key themes), and knowledge graph creation (mapping entities and relationships).",
-                output: "An automated summary of a long article, a list of dominant topics in customer reviews, or a structured database of information extracted from unstructured documents.",
-                skills: { analytical: 8, communication: 5, curation: 9, strategic: 5, technical: 10, creative: 7 }
             }
         };
 
@@ -255,7 +234,7 @@
             
             createOrUpdateChart([0,0,0,0,0,0], 'Select a Domain');
             
-            updateContent('skool');
+            updateContent('product');
         });
     </script>
 
